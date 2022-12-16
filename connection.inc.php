@@ -6,14 +6,14 @@ define('SITE_PATH','http://localhost/nezal/');
 
 // define('INSTAMOJO_REDIRECT',SITE_PATH.'payment_complete.php');
 
-// define('PRODUCT_IMAGE_SERVER_PATH',SERVER_PATH.'media/productimage/');
-// define('PRODUCT_IMAGE_SITE_PATH',SITE_PATH.'media/productimage/');
+define('PRODUCT_IMAGE_SERVER_PATH',SERVER_PATH.'media/productimage/');
+define('PRODUCT_IMAGE_SITE_PATH',SITE_PATH.'media/productimage/');
 
-// define('PRODUCT_MULTIPLE_IMAGE_SERVER_PATH',SERVER_PATH.'media/product_multi_images/');
-// define('PRODUCT_MULTIPLE_IMAGE_SITE_PATH',SITE_PATH.'media/product_multi_images/');
+define('PRODUCT_MULTIPLE_IMAGE_SERVER_PATH',SERVER_PATH.'media/product_multi_images/');
+define('PRODUCT_MULTIPLE_IMAGE_SITE_PATH',SITE_PATH.'media/product_multi_images/');
 
-// define('BANNER_IMAGE_SERVER_PATH',SERVER_PATH.'media/banner/');
-// define('BANNER_IMAGE_SITE_PATH',SITE_PATH.'media/banner/');
+define('BANNER_IMAGE_SERVER_PATH',SERVER_PATH.'media/banner/');
+define('BANNER_IMAGE_SITE_PATH',SITE_PATH.'media/banner/');
 
 
 // define('INSTAMOJO_KEY','test_8562c45715cf38cd874db22d0f1');
