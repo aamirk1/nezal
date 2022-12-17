@@ -1,33 +1,38 @@
-<?php 
-require('header.php');
+<?php require('header.php');
+$cat_res=mysqli_query($con,"Select * from categories where status=1 order by categories asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+   $cat_arr[]=$row;
+}
+$resBanner=mysqli_query($con,"select * from banner where status='1' order by order_no asc")
 
 ?>
+
+    
 <div class="container-fluid">
-         <div class="col-lg-12">
-            <div class="row">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <img src="images/banner/img2.jpg" class="d-block w-100" alt="image1">
-                  </div>
-                  <div class="carousel-item">
-                     <img src="images/banner/img12.jpg" class="d-block w-100" alt="image2">
-                  </div>
-                  <div class="carousel-item">
-                     <img src="images/banner/img2.jpg" class="d-block w-100" alt="image3">
-                  </div>
+      <div class="col-lg-12">
+         <div class="row">
+         <?php if(mysqli_num_rows($resBanner)>0){?>  
+         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <?php while($rowBanner=mysqli_fetch_assoc($resBanner)){?>
+               <div class="carousel-item active">
+               <a href="<?php echo $rowBanner['btn_link']?>"><img src="<?php echo BANNER_IMAGE_SITE_PATH.$rowBanner['image']?>"></a>              
                </div>
-               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-               </button>
-               </div>
+            <?php } ?>   
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+            <?php } ?>
          </div>
+      </div>
       </div>
 
       <div class="container">
@@ -47,77 +52,106 @@ require('header.php');
             </div>
          </div>
       </div>
-<section>
-   <div class="row mt-5 text-center">
-      <H1 style="color:maroon;">Our Shop Collections</H1>
-   </div>
-   <div class="container-fluid mt-5">
-         <div class="col-lg-12">
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href="shop-collection.php"><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-18.jpg" alt="">
-               </a>
-               </div>               
-            </div>
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href=""><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-20.jpg">
-               </a>
-               </div>               
-            </div>
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href=""><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-11.jpg"></a>
-               
-               </div>               
-            </div>
-            <div class="col-lg-3">
-               <div class="row">
-               <a href="#"><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-14.jpg"></a>
-               
-               </div>               
-            </div>               
-         </div>
 
-   </div>
-   <div class="container-fluid mt-5 mb-10">
-         <div class="col-lg-12">
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href=""><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-15.jpg" alt="">
-               </a>
-               </div>               
+<!-- start section first -->
+<div class="container mb-5">
+<section class="htc__category__area ptb--100">
+    <div class="container product__container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section__title--2 text-center">
+                    <h2 class="title__line">shop</h2>
+                </div>
             </div>
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href=""><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-14.jpg">
-               </a>
-               </div>               
+        </div>
+        <div class="htc__product__container">
+            <div class="row">
+                <div class="product__list clearfix mt--10">
+                    <?php
+                    $get_product=get_product($con,4);
+                    foreach($get_product as $list){
+                    ?>
+                    <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+                        <div class="category">
+                            <div class="ht__cat__thumb">
+                                <a href="product.php?id=<?php echo $list['id']?>">
+                                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                                </a>
+                            </div>
+                            <div class="fr__hover__info">
+                                <ul class="product__action">
+                                    <li><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')"><i class="icon-heart icons"></i></a></li>
+                                    <li><a href="product.php?id=<?php echo $list['id']?>" ><i class="icon-handbag icons"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="fr__product__inner">
+                                <h4><a href="product-details.html"><?php echo $list['name']?></a></h4>
+                                <ul class="fr__pro__prize">
+                                    <li class="old__prize"><strike>₹ <?php echo $list['mrp']?></strike></li>
+                                    <li class="new__price">₹ <?php echo $list['price']?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
-            
-            <div class="col-lg-3">
-               <div class="row">
-                  <a href=""><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-13.jpg"></a>
-               
-               </div>               
-            </div>
-            <div class="col-lg-3">
-               <div class="row">
-               <a href="#"><img decoding="async" width="600" height="250" src="https://nezalherbocare.com/wp-content/uploads/2022/11/Aissis-Soap-21.jpg"></a>
-               
-               </div>               
-            </div>               
-         </div>
-
-      </div>
-
-
+        </div>
+    </div>
 </section>
+</div>
+
+<section class="ftr__product__area ptb--100">
+
+<section class="ftr__product__area ptb--100">
+    <div class="container product__container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section__title--2 text-center">
+                    <h2 class="title__line">Best Seller</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <div class="product__list clearfix mt--10">
+            <?php
+            $get_product=get_product($con,4,'','','','','yes');
+            foreach($get_product as $list){
+            ?>
+            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+                <div class="category">
+                    <div class="ht__cat__thumb">
+                        <a href="product.php?id=<?php echo $list['id']?>">
+                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                        </a>
+                    </div>
+                    <div class="fr__hover__info">
+                        <ul class="product__action">
+                            <li><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')"><i class="icon-heart icons"></i></a></li>
+                            <li><a href="product.php?id=<?php echo $list['id']?>" ><i class="icon-handbag icons"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="fr__product__inner">
+                        <h4><a href="product-details.html"><?php echo $list['name']?></a></h4>
+                        <ul class="fr__pro__prize">
+                            <li class="old__prize"><strike>₹ <?php echo $list['mrp']?></strike></li>
+                            <li class="new__price">₹ <?php echo $list['price']?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+
+<!--  -->
+
+        
+
+<!-- end section first -->
+
+<!-- 
 <section>
    
    <div class="row mt-5 text-center">
@@ -219,7 +253,7 @@ require('header.php');
          </div>
 
    </div>
-</section>  
+</section>   -->
 
 <?php
 require('footer.php');

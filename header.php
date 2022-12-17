@@ -107,9 +107,9 @@ while($row=mysqli_fetch_assoc($cat_res)){
                                        <?php
                                     }
                                     ?>
+                                    <li><a href="contact.php">Offer</a></li>
+                                    <li><a href="contact.php">About</a></li>
                                     <li><a href="contact.php">contact</a></li>
-                                    <li><a href="contact.php">contact</a></li>
-                                    <li><a href="contact.php">contact us</a></li>
                                     
                               </ul>
                               
