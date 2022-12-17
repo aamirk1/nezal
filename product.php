@@ -61,7 +61,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
  
 
 ?>
-<!-- style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;" -->
+
 <div class="ht__bradcaump__area">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
@@ -136,7 +136,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 											if($get_product['0']['qty']>$productSoldQtyByProductId){
 												$stock='In Stock';			
 											}else{
-												$stock='Not in Stock';
+												$stock='Out Of Stock';
 												$cart_show='';
 											}
 										
@@ -156,6 +156,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 												echo "<option value='".$key."'>".$val[0]."</option>";
 											}
 											?>
+                                            
 											
 										</select>
 									</div>

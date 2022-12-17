@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto',sans-serif;
+}
+.footer{
+    display: flex;
+    background-color: #182337;
+    height: 290px;
+    padding: 20px;
+}
+.f-1{
+    margin: 10px 30px;
+}
+.f-1 ul{
+    list-style: none;
+}
+.f-1 li{
+    margin-top: 10px;
+}
+.f-1 ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+.f-1 ul li a:hover{
+    text-decoration: underline;
+}
+h2{
+    font-size: 18px;
+    color: #878787;
+    text-transform: uppercase;
+}
+.copy{
+    border-top: 1px solid #878787;
+    position: relative;
+    bottom: 50px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px; 
+    display:flex;
+    color: white;
+}
+.card{
+    position: relative;
+    left: 700px;
+}
+.right-content{
+    border-left: 1px solid #878787;
+    height: 150px;
+    position: relative;
+    top: 10px;
+    left: 190px;
+    display: flex;
+}
+.text1{
+    color: #878787;
+    font-weight: bold;
+}
+.right{
+    position: relative;
+    left: 30px;
+}
+.text2{
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+
+.textSection .ql-editor p {
+    font-size: 18px;
+}
+.ql-editor .ql-align-center {
+    text-align: center;
+}
+.ql-editor p {
+    font-size: 16px;
+    line-height: 24px;
+}
+.ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6, .ql-editor ol, .ql-editor p, .ql-editor pre, .ql-editor ul {
+    margin: 0;
+    padding: 0;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-bubble, .ql-bubble * {
+    box-sizing: border-box;
+}
+figure, h1, h2, h3, h4, hr, p {
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+    border: 0 solid;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.ql-editor>* {
+    cursor: text;
+}
+.ql-editor, .ql-font-theme-font {
+    font-family: prompt;
+}
+.ql-editor {
+    box-sizing: border-box;
+    line-height: 1;
+    height: 100%;
+    outline: none;
+    overflow-y: auto;
+    padding: 12px 15px;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.ql-container {
+    box-sizing: border-box;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+.font-normal {
+    font-weight: 400;
+}
+.bg-textBg {
+    --bg-opacity: 1;
+    background-color: #f2f2f2;
+    background-color: rgba(242,242,242,var(--bg-opacity));
+}
+.msghai{
+    margin-bottom: 15px;
+}
+
+/* social icon */
+
+.social-menu ul{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    padding: 0;
+    margin: 0;
+    transform: translate(50%, 50%);
+    display: flex;
+    
+}
+.social-menu ul li{
+    list-style: none;
+    margin: 0 5px;
+}
+.social-menu ul li .fab{
+    font-size: 25px;
+    line-height: 40px;
+    transition: .3s;
+    color: #000;
+}
+.social-menu ul li .fab:hover{
+    color: #fff;
+}
+.social-menu ul li a{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+.social-menuul li a:hover{
+    transform: translate(0,-10%);
+}
+.social-menu ul li:nth-child(1) a:hover{
+    background-color: #4267B2;
+}
+.social-menu ul li:nth-child(2) a:hover{
+    background-color:#25D366;
+}
+.social-menu ul li:nth-child(3) a:hover{
+    background-color: #0077b5;
+}
+
+
+.cate_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
