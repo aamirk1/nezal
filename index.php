@@ -9,59 +9,49 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
 ?>
 
     
-<div class="container-fluid">
-      <div class="col-lg-12">
-         <div class="row">
-         <?php if(mysqli_num_rows($resBanner)>0){?>  
-         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+<div class="body__overlay"></div>
+    <?php if(mysqli_num_rows($resBanner)>0){?>        
+    <div class="slider__container slider--one bg__cat--3">
+        <div class="slide__container slider__activation__wrap owl-carousel">
             <?php while($rowBanner=mysqli_fetch_assoc($resBanner)){?>
-               <div class="carousel-item active">
-               <a href="<?php echo $rowBanner['btn_link']?>"><img src="<?php echo BANNER_IMAGE_SITE_PATH.$rowBanner['image']?>"></a>              
-               </div>
-            <?php } ?>   
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Next</span>
-            </button>
+            <div class="single__slide animation__style01 slider__fixed--height">
+                <div class="container">
+                    <div class="slide__thumb">
+                        <a href="<?php echo $rowBanner['btn_link']?>"><img src="<?php echo BANNER_IMAGE_SITE_PATH.$rowBanner['image']?>"></a>
+                    </div>
+                </div>
             </div>
             <?php } ?>
-         </div>
+        </div>
+    </div>
+    <?php } ?>
+
+<div class="container">
+   <div class="row mt-5">
+      <div class="row text-center">
+         <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Nezal’s Pledge</H1>
       </div>
-      </div>
-
-      <div class="container">
-         <div class="col-lg-12">
-            <div class="row mt-5 text-center">
-               <H1 style="color:maroon;">Nezal's Pledge</H1>
-            </div>
-            <div class="row text-center">
-               <h5 style="color:#003D13;">
-               Nezal’s range of products are 100% natural and vegetable products like shea butter, Coco butter, Aloe vera, Olive oil, Pure Milk, Turmeric, Aromatherapy oils, Natural Herbal Scrubs etc.</h5>
-
-               <h5 style="color:#003D13;">Nezal’s range of natural toilet amenities like herbal soaps, shampoo, conditioner, oil, scrub, bubble bath and body lotion are well accepted and solicited by major players in the hospitality industry to pamper their clients and enhance their customers loyalty.</h5>
-
-               <h5 style="color:#003D13;">At Nezal we believe in creating the best of products from basic raw ingredients derived from nature, hence we create our own soap base, in-house, by reacting the caustic materials with select range of oils [Coconut oil, Palm kernel oil, etc.] and we are sure of consistent quality and claim all our soap products to be of 100% vegetarian origin as we avoid any kind of animal fats in our process.</h5>
-
-               
-            </div>
-         </div>
-      </div>
+   </div>
+   <div class="row ">
+      <h2 class="text-success">
+      Nezal’s range of products are 100% natural and vegetable products like shea butter, Coco butter, Aloe vera, Olive oil, Pure Milk, Turmeric, Aromatherapy oils, Natural Herbal Scrubs etc.
+      </h2><br/>
+      <h2 class="text-success mt-2">
+      Nezal’s range of natural toilet amenities like herbal soaps, shampoo, conditioner, oil, scrub, bubble bath and body lotion are well accepted and solicited by major players in the hospitality industry to pamper their clients and enhance their customers loyalty.
+      </h2>
+   </div>
+</div>
 
 <div class="container mt-5">
+   <div class="row mt-5">
+      <div class="col-xl-12">
+      <div class="row mt-5 text-center">
+         <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Shop Our Collections</H1>
+      </div>
+   </div>
    <section class="htc__category__area ptb-50">
       <div class="container product__container">
-         <div class="row">
-            <div class="col-xl-12">
-            <div class="row mt-2 text-center">
-               <H1 style="color:maroon;">Shop Our Collections</H1>
-            </div>
-         </div>
+         
          <div class="htc__product__container">
             <div class="row">
                 <div class="product__list clearfix mt-10">
@@ -73,7 +63,7 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
                         <div class="category">
                             <div class="ht__cat__thumb">
                                 <a href="product.php?id=<?php echo $list['id']?>">
-                                    <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
+                                    <img class="border border-warning" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
                                 </a>
                             </div>
                             <div class="fr__hover__info">

@@ -1,12 +1,28 @@
 <?php
 require('connection.inc.php');
 require('function.inc.php');
-// require('add_to_cart.inc.php');
+require('add_to_cart.inc.php');
 $cat_res=mysqli_query($con,"Select * from categories where id=3 order by categories asc");
 $cat_arr=array();
 while($row=mysqli_fetch_assoc($cat_res)){
    $cat_arr[]=$row;
 }
+
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
+
+if(isset($_SESSION['USER_LOGIN'])){
+   $uid=$_SESSION['USER_ID'];
+   if(isset($_GET['wishlist_id'])){
+      $wid=get_safe_value($con,$_GET['wishlist_id']);
+      mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
+   }
+   $wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+	
+}
+$script_name=$_SERVER['SCRIPT_NAME'];
+$script_name_arr=explode('/',$script_name);
+$mypage=$script_name_arr[count($script_name_arr)-1];
 
 // // $obj=new add_to_cart();
 // // $totalProduct=$obj->totalProduct();
@@ -29,18 +45,18 @@ while($row=mysqli_fetch_assoc($cat_res)){
 // // $meta_keyword="Nezal";
 // // $meta_url=SITE_PATH;
 // // $meta_image='';
-// // if($mypage=='product.php'){
-// //    $product_id=get_safe_value($con,$_GET['id']);
-// //    $product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
+if($mypage=='product.php'){
+   $product_id=get_safe_value($con,$_GET['id']);
+   $product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
 // //    $meta_title=$product_meta['meta_title'];
 // //    $meta_desc=$product_meta['meta_desc'];
 // //    $meta_keyword=$product_meta['meta_keyword'];
 // //    $meta_url=SITE_PATH."product.php?id=".$product_id;
 // //    $meta_image=PRODUCT_IMAGE_SITE_PATH.$product_meta['image'];
-// // }if($mypage=='contact.php'){
-// //    $meta_title='Contact Us';
+}if($mypage=='contact.php'){
+   $meta_title='Contact Us';
    
-// }
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -58,13 +74,24 @@ while($row=mysqli_fetch_assoc($cat_res)){
    <link rel="stylesheet" href="style2.css">
    <link rel="stylesheet" href="css/responsive.css">
    <link rel="stylesheet" href="css/custom.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-   
-  
    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-   
+      
+   <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+   <style>
+      .htc__shopping__cart a span.htc__wishlist {
+         background: #ff1493;
+         border-radius: 100%;
+         color: #fff;
+         font-size: 9px;
+         height: 17px;
+         line-height: 19px;
+         position: absolute;
+         right: 18px;
+         text-align: center;
+         top: -4px;
+         width: 17px;
+      }
+   </style>
 </head>
 <body>
     
@@ -133,12 +160,18 @@ while($row=mysqli_fetch_assoc($cat_res)){
                         </div>
                         <div class="col-md-3 col-lg-4 col-sm-4 col-xs-4">
                            <div class="header__right">
-                             
-                              <div class="header__search search search__open">
+                              <?php 
+                              $class="mr15";
+                              if(isset($_SESSION['USER_LOGIN'])){
+                                 $class="";
+                              }
+                              ?>
+                              <div class="header__search search search__open <?php echo $class?> ">
                                  <a href="#"><i class="icon-magnifier icons"></i></a>
                               </div>
                               <div class="header__account">
-                                 
+                                 <?php if(isset($_SESSION['USER_LOGIN'])){
+                                    ?>
                                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                           <span class="navbar-toggler-icon"></span>
@@ -148,27 +181,36 @@ while($row=mysqli_fetch_assoc($cat_res)){
                                           <ul class="navbar-nav mr-auto">
                                              <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                user </a>
+                                                <?php echo $_SESSION['USER_NAME']?> </a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                   <a class="dropdown-item" href="#">&nbsp;&nbsp;Order </a>
-                                                   <a class="dropdown-item" href="#">&nbsp;&nbsp;Profile </a>
+                                                   <a class="dropdown-item" href="my_order.php">&nbsp;&nbsp;Order </a>
+                                                   <a class="dropdown-item" href="profile.php">&nbsp;&nbsp;Profile </a>
                                                    
-                                                   <a class="dropdown-item" href="#">&nbsp;&nbsp;Logout </a>
+                                                   <a class="dropdown-item" href="logout.php">&nbsp;&nbsp;Logout </a>
                                                 </div>
                                              </li>
                                           </ul>
                                        </div>
                                     </nav>
+                                    <?php
+                                 }else{
+                                    echo '<a href="login.php" class="mr15">Login/Register</a>';
+                                 }
+                                 ?>
                               </div>
                               <div class="htc__shopping__cart">
-                                 
-                                 <a href="#"><i class="icon-heart icons"></i></a>
-                                 <a href="#"><span class="htc__wishlist"></span></a>
-                                 <a href="#"><i class="icon-handbag icons"></i></a>
-                                 <a href="#"><span class="htc__qua"></span></a>
+                                 <?php   
+                                 if(isset($_SESSION['USER_ID'])){
+                                 ?>
+                                 <a href="wishlist.php"><i class="icon-heart icons"></i></a>
+                                 <a href="wishlist.php"><span class="htc__wishlist"><?php echo $wishlist_count ?></span></a>
+                                 <?php } ?>
+                                 <a href="cart.php"><i class="icon-handbag icons"></i></a>
+                                 <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct ?></span></a>
                               </div>
                            </div>
                         </div>
+                  
                   </div>
                </div>
                <div class="mobile-menu-area"></div>

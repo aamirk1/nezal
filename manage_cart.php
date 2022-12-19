@@ -8,16 +8,13 @@ $qty=get_safe_value($con,$_POST['qty']);
 $type=get_safe_value($con,$_POST['type']);
 
 $attr_id=0;
-if(isset($_POST['sid']) && isset($_POST['cid'])){
+if(isset($_POST['sid'])){
 	$sub_sql='';
 	$sid=get_safe_value($con,$_POST['sid']);
-	$cid=get_safe_value($con,$_POST['cid']);
 	if($sid>0){
 		$sub_sql.=" and size_id=$sid ";
 	}
-	if($cid>0){
-		$sub_sql.=" and color_id=$cid ";
-	}
+	
 	$row=mysqli_fetch_assoc(mysqli_query($con,"select id from product_attributes where product_id='$pid' $sub_sql"));
 	$attr_id=$row['id'];
 }

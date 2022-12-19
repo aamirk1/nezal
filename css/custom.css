@@ -21,3 +21,46 @@
     font-size: 20px;
     font-weight: bold;
 }
+#social_share_box{
+    margin-top: 20px;
+    width: 100px;
+}
+#social_share_box img{
+    width: 24px;
+    margin-left: 5px;
+}
+.buy_now{
+    background: #337ab7 none repeat scroll 0 0;
+}
+#coupon_result{
+    padding: 33px;
+    padding-top: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+#coupon_box{
+    display: none;
+}
+#multiple_images{
+    margin-top: 10px;
+}
+#multiple_images img{
+    width: 15%;
+}
+
+.review_heading{
+	font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+}
+
+#review .comment-rating{
+    color:#c43b68;
+	font-weight:bold;   
+}
+
+.submit_review_hint{
+	font-size:16px;
+	color:#c43b68;
+}

@@ -44,7 +44,7 @@ require('header.php');
 
 
 $resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
-	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
+	
 	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
 	where product_attributes.id='$key1'"));
 
@@ -101,8 +101,8 @@ if(isset($resAttr['size']) && $resAttr['size']!=''){
             </div>
         </div>
         <input type="hidden" id="sid">
-		<input type="hidden" id="cid">
+		<!-- <input type="hidden" id="cid"> -->
 		
 
-<?php require('footer.inc.php')?>
+<?php require('footer.php')?>
         

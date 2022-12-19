@@ -36,6 +36,7 @@ if(isset($_GET['id'])){
 		}
 	}
 	$is_size=count(array_filter($sizeArr1));
+	//$colorArr=array_unique($colorArr);
 	//$sizeArr=array_unique($sizeArr1);
 }else{
 	?>
@@ -61,8 +62,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
  
 
 ?>
-
-<div class="ht__bradcaump__area">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">
@@ -136,7 +136,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 											if($get_product['0']['qty']>$productSoldQtyByProductId){
 												$stock='In Stock';			
 											}else{
-												$stock='Out Of Stock';
+												$stock='Not in Stock';
 												$cart_show='';
 											}
 										
@@ -156,7 +156,6 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 												echo "<option value='".$key."'>".$val[0]."</option>";
 											}
 											?>
-                                            
 											
 										</select>
 									</div>
@@ -370,7 +369,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
             </div>
         </section>
         <?php 
-             $arrRec=unserialize($_COOKIE['recently_viewed']);
+            $arrRec=unserialize($_COOKIE['recently_viewed']);
             if(($key=array_search($product_id,$arrRec))!==false){
                 unset($arrRec[$key]);
             }
@@ -388,10 +387,15 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 			}
 			let is_size='<?php echo $is_size?>';
 			let pid='<?php echo $product_id?>';
+
+
+
+
+            
 			
 		</script>
 <?php 
-require('footer.inc.php');
+require('footer.php');
 ob_flush();
 ?>
         

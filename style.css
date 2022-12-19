@@ -232,13 +232,13 @@
     padding-top: 23px;
     text-align: center;
     margin-top: 5px;
-    background-color: #fff3eb;
+    background-color: #206F17;
 }
 .product__container{
     background-color:#E4E0E0;
 }
 .fr__product__inner h4 a {
-    color: #444;
+    color: #fff;
     font-family: Old Standard TT;
     font-size: 17px;
     font-weight: 600;
@@ -255,7 +255,7 @@
     margin-bottom: 6px;
 }
 .fr__pro__prize li {
-    color: #313131;
+    color: #f6f6f6;
     font-family: Poppins;
     font-size: 16px;
     font-weight: 500;
@@ -3611,7 +3611,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     margin-right: 5px;
 }
 #size_attr{
-    width:50px;
+    width:75px;
 }
 #coupon_result{
 	padding: 33px;
