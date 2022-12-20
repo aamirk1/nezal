@@ -2065,13 +2065,13 @@ select.select__size {
     border-radius: 0;
     border-style: solid;
     border-width: 1px 0 0 1px;
-    margin: 0 0 50px;
+    margin: 0 0 10px;
     text-align: center;
     width: 100%;
 }
 .table-content table th {
     border-top: medium none;
-    padding: 20px 10px;
+    padding: 10px 10px;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -2087,7 +2087,7 @@ select.select__size {
 }
 .table-content table td{
     border-top: medium none;
-    padding: 20px 10px;
+    padding: 0px 10px;
     vertical-align: middle;font-size: 13px;
 }
 .table-content table td input{
@@ -2098,8 +2098,8 @@ select.select__size {
     font-size: 15px;
     font-weight: normal;
     height: 40px;
-    padding: 0 5px 0 10px;
-    width: 60px;
+    padding: 0 10px 0 10px;
+    width: 100px;
 }
 .table-content table td.product-subtotal {
     color: #313131;
@@ -2116,6 +2116,7 @@ select.select__size {
 }
 .table-content table td.product-name{
     width: 270px;
+    height: 65px;
 }
 .table-content table td.product-thumbnail{
     width: 130px;
@@ -3578,6 +3579,7 @@ ul.htc__instagram__posts.owl-carousel li img {
 }
 .ht__cat__thumb a img {
     width: 100%;
+    height: 290px;
 }
 .slick-initialized .slick-slide {
     outline: none;

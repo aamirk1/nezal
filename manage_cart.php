@@ -14,7 +14,6 @@ if(isset($_POST['sid'])){
 	if($sid>0){
 		$sub_sql.=" and size_id=$sid ";
 	}
-	
 	$row=mysqli_fetch_assoc(mysqli_query($con,"select id from product_attributes where product_id='$pid' $sub_sql"));
 	$attr_id=$row['id'];
 }

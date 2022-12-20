@@ -10,6 +10,7 @@
     <script src="js/main.js"></script>
     <script src="js/jquery.imgzoom.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/custom2.js"></script>
     <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
   
 </body>

@@ -135,8 +135,8 @@ if($mypage=='product.php'){
                                     }
                                     ?>
                                     <li><a href="contact.php">Offer</a></li>
-                                    <li><a href="contact.php">About</a></li>
-                                    <li><a href="contact.php">contact</a></li>
+                                    <li><a href="contact.php">About Us</a></li>
+                                    <li><a href="contact.php">contact Us</a></li>
                                     
                               </ul>
                               

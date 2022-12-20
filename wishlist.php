@@ -11,14 +11,12 @@ $uid=$_SESSION['USER_ID'];
 
 $res=mysqli_query($con,"select product.name,product.image,product_attributes.price,product_attributes.mrp,product.id as pid,wishlist.id from product,wishlist,product_attributes where wishlist.product_id=product.id and wishlist.user_id='$uid' and product_attributes.product_id=product.id group by product_attributes.product_id");
 ?>
-<div class="ht__bradcaump__area">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
+<div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="bradcaump__inner">
+                    <div class="bradcaump__inner" style="text-align: left;">
                         <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <a class="breadcrumb-item" href="index.php">Home</a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                             <span class="breadcrumb-item active">Wishlist</span>
                         </nav>
@@ -26,8 +24,6 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <div class="cart-main-area ptb--100 bg__white">
     <div class="container">
         <div class="row">
@@ -47,7 +43,8 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
                                 while($row=mysqli_fetch_assoc($res)){
                                 ?>
                                 <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></a></td>
+                                    <td class="product-thumbnail"><a href="#"><img style="width: 90px;
+  height: 60px;" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></a></td>
                                     <td class="product-name"><a href="#"><?php echo $row['name'] ?></a>
                                         <ul  class="pro__prize">
                                             <li class="old__prize"><?php echo $row['mrp'] ?></li>

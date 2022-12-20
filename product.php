@@ -62,7 +62,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
  
 
 ?>
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">

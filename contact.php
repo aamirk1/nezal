@@ -34,9 +34,9 @@ require('header.php');
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">our address</h2>
-                                <p>Central Park,<br>
-                                    Near Police Station<br>
-                                    Mumbai 400006,<br>
+                                <p>Abc Road, Central Park,<br>
+                                    Near Police Station,<br>
+                                    Mumbai 400023,<br>
                                     Maharashtra,India.
                                 </p>
                             </div>
@@ -49,18 +49,18 @@ require('header.php');
                                 <h2 class="ct__title">openning hour</h2>
                                 <p>08am to 10pm</p>
 
-                                <p>Central Park,<br>
-                                    Near Police Station<br>
-                                    Mumbai 400006,<br>
+                                <p>Abc Road, Central Park,<br>
+                                    Near Police Station,<br>
+                                    Mumbai 400023,<br>
                                     Maharashtra,India.
                                 </p>
                             </div>
                         </div>
-                        <p>Central Park,<br>
-                                    Near Police Station<br>
-                                    Mumbai 400006,<br>
-                                    Maharashtra,India.
-                                </p>
+                        <p class="text2">Nezal,<br>
+                    Abc Road, Central Park,<br>
+                    Near Police Station,<br>
+                    Mumbai 400023,<br>
+                    Maharashtra,India.</p>
 
                         <div class="address">
                             <div class="address__icon">
@@ -68,7 +68,7 @@ require('header.php');
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">Phone Number</h2>
-                                <p>+91-9866550908</p>
+                                <p>+91-9512376409</p>
                             </div>
                         </div>
                     </div>      
@@ -81,7 +81,7 @@ require('header.php');
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <form id="contact-form" method="post">
+                        <form id="contact-form" method="post">
                                 <div class="single-contact-form">
                                     <div class="contact-box name">
                                         <input type="text" id="name" name="name" placeholder="Your Name*">

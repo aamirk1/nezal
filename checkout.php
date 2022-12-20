@@ -17,7 +17,6 @@ $address='';
 $city='';
 $pincode='';
 
-
 if(isset($_POST['submit'])){
 	$address=get_safe_value($con,$_POST['address']);
 	$city=get_safe_value($con,$_POST['city']);
@@ -124,7 +123,7 @@ if(isset($_POST['submit'])){
 			}
 		}
 	}else{	
-		// SentInvoice($con,$order_id);
+		SentInvoice($con,$order_id);
 		?>
         <script>
             window.location.href='thank_you.php';
@@ -284,7 +283,7 @@ if(mysqli_num_rows($lastOrderDetailsRes)>0){
             </div>
             <div class="col-md-4">
                 <div class="order-details">
-                <h5 class="order-details__title">Your Order</h5>
+                    <h5 class="order-details__title">Your Order</h5>
                     <div class="order-details__item">
                                 <?php
 								$cart_total=0;
@@ -295,7 +294,8 @@ if(mysqli_num_rows($lastOrderDetailsRes)>0){
 								
 								foreach($val as $key1=>$val1){
 									
-$resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,size_master.size from product_attributes 
+$resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
+	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
 	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
 	where product_attributes.id='$key1'"));						
 $productArr=get_product($con,'','',$key,'','','','',$key1);
@@ -304,7 +304,6 @@ $mrp=$productArr[0]['mrp'];
 $price=$productArr[0]['price'];
 $image=$productArr[0]['image'];
 $qty=$val1['qty'];	
-
 								
 								$cart_total=$cart_total+($price*$qty);
 								?>
@@ -323,6 +322,7 @@ $qty=$val1['qty'];
 								<?php } } ?>
                             </div>
 							
+                    		
                     <div class="ordre-details__total" id="coupon_box">
                         <h5>Coupon Value</h5>
                         <span class="price" id="coupon_price"><?php echo $cart_total?></span>

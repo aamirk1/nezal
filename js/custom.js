@@ -90,15 +90,15 @@ function user_login(){
 					jQuery('.login_msg p').html('Please enter valid login details');
 				}
 				if(result=='valid'){
-					window.location.href="index.php";
+					window.location.href=window.location.href;
 				}
 			}	
 		});
 	}	
 }
 
-function manage_cart_update(pid,type,size_id){
-	
+function manage_cart_update(pid,type,size_id,color_id){
+	jQuery('#cid').val(color_id);
 	jQuery('#sid').val(size_id);
 	manage_cart(pid,type);
 }
@@ -110,11 +110,15 @@ function manage_cart(pid,type,is_checkout){
 	}else{
 		var qty=jQuery("#qty").val();
 	}
+	let cid=jQuery('#cid').val();
 	let sid=jQuery('#sid').val();
 	if(type=='add'){
 		
 		
-		
+		if(is_color!=0 && cid==''){
+			jQuery('#cart_attr_msg').html('Please select color');
+			is_error='yes';
+		}
 		if(is_size!=0 && sid=='' && is_error==''){
 			jQuery('#cart_attr_msg').html('Please select size');
 			is_error='yes';
@@ -125,7 +129,7 @@ function manage_cart(pid,type,is_checkout){
 		jQuery.ajax({
 			url:'manage_cart.php',
 			type:'post',
-			data:'pid='+pid+'&qty='+qty+'&type='+type+'&sid='+sid,
+			data:'pid='+pid+'&qty='+qty+'&type='+type+'&cid='+cid+'&sid='+sid,
 			success:function(result){
 				result=result.trim();
 				if(type=='update' || type=='remove'){
@@ -170,7 +174,7 @@ jQuery('.imageZoom').imgZoom();
 function loadAttr(c_s_id,pid,type){
 	jQuery('#cart_qty').addClass('hide');
 	jQuery('#is_cart_box_show').addClass('hide');
-	jQuery('#sid').val(c_s_id);				
+	jQuery('#cid').val(c_s_id);				
 	if(is_size==0){
 		jQuery('#cart_attr_msg').html('');
 		jQuery('#cart_qty').removeClass('hide');
@@ -191,9 +195,9 @@ function loadAttr(c_s_id,pid,type){
 }
 
 function showQty(){
-	let sid=jQuery('#sid').val();
-	if(sid=='' && is_size>0){
-		jQuery('#cart_attr_msg').html('Please select size');
+	let cid=jQuery('#cid').val();
+	if(cid=='' && is_color>0){
+		jQuery('#cart_attr_msg').html('Please select color');
 	}else{
 		let sid=jQuery('#size_attr').val();
 		
@@ -205,11 +209,12 @@ function showQty(){
 function getAttrDetails(pid){
 	jQuery('#is_cart_box_show').addClass('hide');
 	jQuery('#cart_qty').hide();
+	let color=jQuery('#cid').val();
 	let size=jQuery('#sid').val();
 	jQuery.ajax({
 		url:'getAttrDetails.php',
 		type:'post',
-		data:'pid='+pid+'&size='+size,
+		data:'pid='+pid+'&color='+color+'&size='+size,
 		success:function(result){
 			result=jQuery.parseJSON(result);
 			jQuery('.old__prize').html(result.mrp);
