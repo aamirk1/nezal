@@ -64,7 +64,8 @@ if($mypage=='product.php'){
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <title>Nezal</title>
-   
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+
    <link rel="stylesheet" href="css/bootstrap.min.css">
    <link rel="stylesheet" href="css/owl.carousel.min.css">
    <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -90,6 +91,9 @@ if($mypage=='product.php'){
          text-align: center;
          top: -4px;
          width: 17px;
+      }
+      .checked {
+         color: orange;
       }
    </style>
 </head>

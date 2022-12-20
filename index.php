@@ -25,7 +25,7 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
         </div>
     </div>
     <?php } ?>
-
+</div>
 <div class="container">
    <div class="row mt-5">
       <div class="row text-center">
@@ -45,13 +45,13 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
 <div class="container mt-5">
    <div class="row mt-5">
       <div class="col-xl-12">
-      <div class="row mt-5 text-center">
-         <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Shop Our Collections</H1>
+         <div class="row mt-5 text-center">
+            <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Shop Our Collections</H1>
+         </div>
       </div>
    </div>
    <section class="htc__category__area ptb-50">
       <div class="container product__container">
-         
          <div class="htc__product__container">
             <div class="row">
                 <div class="product__list clearfix mt-10">
@@ -89,9 +89,19 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
    </section>
 </div>
 
+
+</div>
+<?php 
+require('footer.php');
+ob_flush();
+?>
+
+
+
+
 <!-- start section first -->
 
-<!--  -->
+
 
         
 
@@ -200,6 +210,3 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
 
    </div>
 </section>   -->
-
-<?php
-require('footer.php');
