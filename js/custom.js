@@ -1,4 +1,4 @@
-function send_message(){
+function send_msg(){
 	var name=jQuery("#name").val();
 	var email=jQuery("#email").val();
 	var mobile=jQuery("#mobile").val();

@@ -1,19 +1,15 @@
 <?php 
 require('header.php');
 ?>
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcaump__inner">
-                        <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.php">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">Shopping Cart</span>
-                        </nav>
-                    </div>
-                </div>
+<div class="ht__bradcaump__area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 bradcaump__inner">
+                <nav class="bradcaump-inner">
+                    <a class="breadcrumb-item" href="index.php">Home</a>
+                    <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                    <span class="breadcrumb-item active">Shopping Cart</span>
+                </nav>
             </div>
         </div>
     </div>
@@ -57,8 +53,8 @@ $resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color
 											$qty=$val1['qty'];
 											?>
 											<tr>
-												<td class="product-thumbnail"style="width: 90px;
-  height: 60px;"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  /></a></td>
+												<td class="product-thumbnail"><a href="#"><img style="width: 25px;
+  height: 30px;"  src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  /></a></td>
 												<td class="product-name"><a href="#"><?php echo $pname?></a>
 <?php
 if(isset($resAttr['color']) && $resAttr['color']!=''){

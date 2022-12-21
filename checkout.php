@@ -133,21 +133,13 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcaump__inner">
-                        <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.php">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">checkout</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <div class="col-xs-12">
+        <nav class="bradcaump-inner">
+            <a class="breadcrumb-item" href="index.php">Home</a>
+            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+            <span class="breadcrumb-item active">checkout</span>
+        </nav>
     </div>
 </div>
 <div class="checkout-wrap ptb--100">
@@ -309,7 +301,7 @@ $qty=$val1['qty'];
 								?>
 								<div class="single-item">
                                     <div class="single-item__thumb">
-                                        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  />
+                                        <img style="width: 20px; height: 30px;" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  />
                                     </div>
                                     <div class="single-item__content">
                                         <a href="#"><?php echo $pname?> * <?php echo $qty?></a>

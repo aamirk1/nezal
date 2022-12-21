@@ -2,7 +2,7 @@
   
 <div class="footer">
     <div class="f-1"style="width:40%">
-        <h2>Nezal’s range of products are 100% natural and vegetable products like shea butter, Coco butter, Aloe vera, Olive oil, Pure Milk, Turmeric, Aromatherapy oils, Natural Herbal Scrubs etc.</h2>
+        <h2 style="margin-top: 50px;">Nezal’s range of products are 100% natural and vegetable products like shea butter, Coco butter, Aloe vera, Olive oil, Pure Milk, Turmeric, Aromatherapy oils, Natural Herbal Scrubs etc.</h2>
         
     </div>
     <div class="f-1">

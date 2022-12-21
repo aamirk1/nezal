@@ -18,24 +18,16 @@ if($coupon_value==''){
 }
 $total_price=0;
 ?>
-<div class="ht__bradcaump__area">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcaump__inner">
-                        <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.php">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">Order Details</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+    <div class="col-xs-12 bradcaump__inner">
+            <nav class="bradcaump-inner">
+                <a class="breadcrumb-item" href="index.php">Home</a>
+                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                <span class="breadcrumb-item active">Order Details</span>
+            </nav>
         </div>
-    </div>
 </div>
-<div class="wishlist-area ptb--100 bg__white">
+<div class="wishlist-area ptb--50 bg__white">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -46,11 +38,11 @@ $total_price=0;
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="product-thumbnail">Product Name</th>
                                         <th class="product-thumbnail">Product Image</th>
-                                        <th class="product-name">Qty</th>
-                                        <th class="product-name">Price</th>
-                                        <th class="product-name">Total Price</th>
+                                        <th class="product-name">Product Name</th>
+                                        <th class="product-quantity" style="width:70px;">Qty</th>
+                                        <th class="product-price" style="width:140px;">Price</th>
+                                        <th class="product-subtotal" style="width:170px;">Total Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,11 +54,12 @@ $total_price=0;
                                     $total_price=$total_price+($row['qty']*$row['price']);
                                     ?>                                    
                                     <tr>
+                                        
+                                        <td class="product-thumbnail"> <img style="width: 20px; height: 30px;" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"></td>
                                         <td class="product-name"> <?php echo $row['name']?></td>
-                                        <td class="product-name"> <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"></td>
-                                        <td class="product-name"> <?php echo $row['qty']?></td>
-                                        <td class="product-name"> <?php echo $row['price']?></td>
-                                        <td class="product-name"> <?php echo $row['qty']*$row['price']?></td>
+                                        <td class="product-quantity"> <?php echo $row['qty']?></td>
+                                        <td class="product-price"> <?php echo $row['price']?></td>
+                                        <td class="product-subtotal"> <?php echo $row['qty']*$row['price']?></td>
                                     </tr>
                                     <?php } 
                                     if($coupon_value!=""){

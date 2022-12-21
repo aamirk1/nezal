@@ -1386,7 +1386,7 @@
     font-size: 18px;
 }
 .bradcaump__inner {
-    text-align: center;
+    text-align: left;
 }
 
 /*------------------------------
@@ -2096,9 +2096,10 @@ select.select__size {
     color: #6f6f6f;
     font-size: 15px;
     font-weight: normal;
-    height: 40px;
+    height: 30px;
     padding: 0 10px 0 10px;
-    width: 100px;
+    width: 80px;
+    text-align: center;
 }
 .table-content table td.product-subtotal {
     color: #313131;
@@ -2903,7 +2904,7 @@ a.shipping-calculator-button:hover{
     font-family: Old Standard TT;
     font-size: 16px;
     font-weight: 600;
-    padding: 15px 10px;
+    padding: 5px 5px;
     text-align: center;
 }
 .wishlist-table table .product-remove {
