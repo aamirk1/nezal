@@ -22,20 +22,25 @@ if(isset($_GET['id'])){
 	}
 	
 	
-	$resAttr=mysqli_query($con,"select product_attributes.*,size_master.size from product_attributes 
+	$resAttr=mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
+	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
 	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
 	where product_attributes.product_id='$product_id'");
 	$productAttr=[];
+	$colorArr=[];
 	$sizeArr=[];
 	if(mysqli_num_rows($resAttr)>0){
 		while($rowAttr=mysqli_fetch_assoc($resAttr)){
 			$productAttr[]=$rowAttr;
+			$colorArr[$rowAttr['color_id']][]=$rowAttr['color'];
 			$sizeArr[$rowAttr['size_id']][]=$rowAttr['size'];
 			
+			$colorArr1[]=$rowAttr['color'];
 			$sizeArr1[]=$rowAttr['size'];
 		}
 	}
 	$is_size=count(array_filter($sizeArr1));
+	$is_color=count(array_filter($colorArr1));
 	//$colorArr=array_unique($colorArr);
 	//$sizeArr=array_unique($sizeArr1);
 }else{
@@ -62,7 +67,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
  
 
 ?>
-<div class="ht__bradcaump__area">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">
@@ -120,7 +125,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 									<?php 
 									$cart_show='yes';
 									$is_cart_box_show="hide";
-									if($is_size==0){
+									if($is_color==0 && $is_size==0){
 										$is_cart_box_show="";
 									?>
 								
@@ -145,6 +150,19 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
                                     </div>
 									<?php } ?>
 									
+									<?php if($is_color>0){?>
+									<div class="sin__desc align--left">
+										<p><span>color:</span></p>
+										<ul class="pro__color">
+											<?php 
+											foreach($colorArr as $key=>$val){
+												echo "<li style='background:".$val[0]." none repeat scroll 0 0'><a href='javascript:void(0)' onclick=loadAttr('".$key."','".$get_product['0']['id']."','color')>".$val[0]."</a></li>";
+											}
+											?>
+											
+										</ul>
+									</div>
+									<?php } ?>
 									
 									<?php if($is_size>0){?>
 									<div class="sin__desc align--left">
@@ -163,7 +181,7 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 									
 									<?php
 									$isQtyHide="hide";
-									if($is_size==0){
+									if($is_color==0 && $is_size==0){
 										$isQtyHide="";
 									}
 									?>
@@ -385,13 +403,9 @@ $product_review_res=mysqli_query($con,"select users.name,product_review.id,produ
 				jQuery('#img-tab-1').html("<img src='"+im+"' data-origin='"+im+"'/>");
 				jQuery('.imageZoom').imgZoom();
 			}
+			let is_color='<?php echo $is_color?>';
 			let is_size='<?php echo $is_size?>';
 			let pid='<?php echo $product_id?>';
-
-
-
-
-            
 			
 		</script>
 <?php 

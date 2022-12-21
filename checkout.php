@@ -123,7 +123,7 @@ if(isset($_POST['submit'])){
 			}
 		}
 	}else{	
-		SentInvoice($con,$order_id);
+		// SentInvoice($con,$order_id);
 		?>
         <script>
             window.location.href='thank_you.php';
@@ -133,7 +133,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<div class="ht__bradcaump__area">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -322,7 +322,6 @@ $qty=$val1['qty'];
 								<?php } } ?>
                             </div>
 							
-                    		
                     <div class="ordre-details__total" id="coupon_box">
                         <h5>Coupon Value</h5>
                         <span class="price" id="coupon_price"><?php echo $cart_total?></span>

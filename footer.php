@@ -30,13 +30,6 @@
     </div>
     <div class="f-1">
         <div class="row">
-          <h2>Connect</h2>
-          <ul>
-              <li><a href="#">Facebook</a></li>
-              
-          </ul>
-        </div>
-        <div class="row">
           <h2>Social</h2>
           <ul>
               <li><a href="#">Facebook</a></li>

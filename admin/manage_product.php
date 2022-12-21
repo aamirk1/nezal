@@ -26,6 +26,7 @@ $image_required='required';
 
 $attrProduct[0]['product_id']='';
 $attrProduct[0]['size_id']='';
+$attrProduct[0]['color_id']='';
 $attrProduct[0]['mrp']='';
 $attrProduct[0]['price']='';
 $attrProduct[0]['qty']='';
@@ -74,6 +75,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		while($rowProductAttr=mysqli_fetch_assoc($resProductAttr)){
 			$attrProduct[$jj]['product_id']=$rowProductAttr['product_id'];
 			$attrProduct[$jj]['size_id']=$rowProductAttr['size_id'];
+			$attrProduct[$jj]['color_id']=$rowProductAttr['color_id'];
 			$attrProduct[$jj]['mrp']=$rowProductAttr['mrp'];
 			$attrProduct[$jj]['price']=$rowProductAttr['price'];
 			$attrProduct[$jj]['qty']=$rowProductAttr['qty'];
@@ -202,12 +204,13 @@ if(isset($_POST['submit'])){
 				$price=get_safe_value($con,$_POST['price'][$key]);
 				$qty=get_safe_value($con,$_POST['qty'][$key]);
 				$size_id=get_safe_value($con,$_POST['size_id'][$key]);
+				$color_id=get_safe_value($con,$_POST['color_id'][$key]);
 				$attr_id=get_safe_value($con,$_POST['attr_id'][$key]);
 				
 				if($attr_id>0){
-					mysqli_query($con,"update product_attributes set size_id='$size_id',mrp='$mrp',price='$price',qty='$qty' where id='$attr_id'");
+					mysqli_query($con,"update product_attributes set size_id='$size_id',color_id='$color_id',mrp='$mrp',price='$price',qty='$qty' where id='$attr_id'");
 				}else{
-					mysqli_query($con,"insert into product_attributes(product_id,size_id,mrp,price,qty) values('$id','$size_id','$mrp','$price','$qty')");
+					mysqli_query($con,"insert into product_attributes(product_id,size_id,color_id,mrp,price,qty) values('$id','$size_id','$color_id','$mrp','$price','$qty')");
 				}
 			}
 		}
@@ -313,7 +316,22 @@ if(isset($_POST['submit'])){
 										</select>
 										
 									  </div>
-									  
+									  <div class="col-lg-2">
+										<label for="categories" class=" form-control-label">Color</label>
+										<select class="form-control" name="color_id[]" id="color_id">
+										<option>Color</option>
+										<?php
+											$res=mysqli_query($con,"select id,color from color_master order by color asc");
+											while($row=mysqli_fetch_assoc($res)){
+												if($list['color_id']==$row['id']){
+													echo "<option value=".$row['id']." selected>".$row['color']."</option>";
+												}else{
+													echo "<option value=".$row['id']." >".$row['color']."</option>";	
+												}
+											}
+											?>
+										</select>
+									  </div>
 									  <div class="col-lg-2">
 										<label for="categories" class=" form-control-label"></label>
 										<?php
@@ -445,7 +463,10 @@ foreach($multipleImageArr as $list){
 				var size_html=jQuery('#attr_1 #size_id').html();
 				size_html=size_html.replace('selected','');
 				
-				var html='<div class="row mt20" id="attr_'+attr_count+'"> <div class="col-lg-2"><label for="categories" class=" form-control-label">MRP</label><input type="text" name="mrp[]" placeholder="MRP" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Price</label><input type="text" name="price[]" placeholder="Price" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Qty</label><input type="text" name="qty[]" placeholder="Qty" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Size</label><select class="form-control" id="size_id" name="size_id[]">'+size_html+'</select> </div>  <div class="col-lg-2"><label for="categories" class=" form-control-label">&nbsp;</label><button id="" type="button" class="btn btn-lg btn-danger btn-block" onclick=remove_attr("'+attr_count+'")><span id="payment-button-amount">Remove</span></button> </div><input type="hidden" name="attr_id[]" value=""/></div>';
+				var color_html=jQuery('#attr_1 #color_id').html();
+				color_html=color_html.replace('selected','');
+				
+				var html='<div class="row mt20" id="attr_'+attr_count+'"> <div class="col-lg-2"><label for="categories" class=" form-control-label">MRP</label><input type="text" name="mrp[]" placeholder="MRP" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Price</label><input type="text" name="price[]" placeholder="Price" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Qty</label><input type="text" name="qty[]" placeholder="Qty" class="form-control" required="" value=""> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Size</label><select class="form-control" id="size_id" name="size_id[]">'+size_html+'</select> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">Color</label><select class="form-control" id="color_id" name="color_id[]">'+color_html+'</select> </div> <div class="col-lg-2"><label for="categories" class=" form-control-label">&nbsp;</label><button id="" type="button" class="btn btn-lg btn-danger btn-block" onclick=remove_attr("'+attr_count+'")><span id="payment-button-amount">Remove</span></button> </div><input type="hidden" name="attr_id[]" value=""/></div>';
 				jQuery('#product_attr_box').append(html);
 			}
 			

@@ -69,5 +69,5 @@ require('header.php');
         </div>
     </div>
 </div>
-<?php require('footer.inc.php')?>
+<?php require('footer.php')?>
         

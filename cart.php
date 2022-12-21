@@ -1,7 +1,7 @@
 <?php 
 require('header.php');
 ?>
-<div class="ht__bradcaump__area">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -43,8 +43,8 @@ require('header.php');
 											foreach($val as $key1=>$val1)	{
 
 
-$resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,size_master.size from product_attributes 
-	
+$resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
+	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
 	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
 	where product_attributes.id='$key1'"));
 
@@ -57,11 +57,13 @@ $resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,size_
 											$qty=$val1['qty'];
 											?>
 											<tr>
-												<td class="product-thumbnail"><a href="#"><img style="width: 90px;
-  height: 60px;" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  /></a></td>
+												<td class="product-thumbnail"style="width: 90px;
+  height: 60px;"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  /></a></td>
 												<td class="product-name"><a href="#"><?php echo $pname?></a>
 <?php
-
+if(isset($resAttr['color']) && $resAttr['color']!=''){
+	echo "<br/>".$resAttr['color'].''; 
+}
 if(isset($resAttr['size']) && $resAttr['size']!=''){
 	echo "<br/>".$resAttr['size'].''; 
 }
@@ -72,11 +74,11 @@ if(isset($resAttr['size']) && $resAttr['size']!=''){
 													</ul>
 												</td>
 												<td class="product-price"><span class="amount"><?php echo $price?></span></td>
-												<td class="product-quantity"><input style="text-align: center;" type="number" id="<?php echo $key?>qty" value="<?php echo $qty?>" />
-												<br/><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','update','<?php echo $resAttr['size_id']?>')">update</a>
+												<td class="product-quantity"><input type="number" id="<?php echo $key?>qty" value="<?php echo $qty?>" />
+												<br/><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','update','<?php echo $resAttr['size_id']?>','<?php echo $resAttr['color_id']?>')">update</a>
 												</td>
 												<td class="product-subtotal"><?php echo $qty*$price?></td>
-												<td class="product-remove"><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','remove','<?php echo $resAttr['size_id']?>')"><i class="icon-trash icons"></i></a></td>
+												<td class="product-remove"><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','remove','<?php echo $resAttr['size_id']?>','<?php echo $resAttr['color_id']?>')"><i class="icon-trash icons"></i></a></td>
 											</tr>
 										<?php } } } ?>
                             </tbody>
@@ -100,6 +102,7 @@ if(isset($resAttr['size']) && $resAttr['size']!=''){
             </div>
         </div>
         <input type="hidden" id="sid">
+		<input type="hidden" id="cid">
 		
 
 <?php require('footer.php')?>
