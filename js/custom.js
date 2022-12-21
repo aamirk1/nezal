@@ -2,7 +2,7 @@ function send_msg(){
 	var name=jQuery("#name").val();
 	var email=jQuery("#email").val();
 	var mobile=jQuery("#mobile").val();
-	var message=jQuery("#message").val();
+	var comment=jQuery("#comment").val();
 	
 	if(name==""){
 		alert('Please enter name');
@@ -10,13 +10,13 @@ function send_msg(){
 		alert('Please enter email');
 	}else if(mobile==""){
 		alert('Please enter mobile');
-	}else if(message==""){
-		alert('Please enter message');
+	}else if(comment==""){
+		alert('Please enter comment');
 	}else{
 		jQuery.ajax({
 			url:'send_message.php',
 			type:'post',
-			data:'name='+name+'&email='+email+'&mobile='+mobile+'&message='+message,
+			data:'name='+name+'&email='+email+'&mobile='+mobile+'&comment='+comment,
 			success:function(result){
 				alert(result);
 			}	
