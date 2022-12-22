@@ -2,36 +2,31 @@
 require('header.php');
 $str=mysqli_real_escape_string($con,$_GET['str']);
 if($str!=''){
-    $get_product=get_product($con,'','','',$str);
+	$get_product=get_product($con,'','','',$str);
 }else{
-    ?>
-    <script>
-        window.location.href='index.php';
-    </script>
-    <?php
+	?>
+	<script>
+	// window.location.href='index.php';
+	</script>
+	<?php
 }
 
+
+
 ?>
-<div class="body__overlay"></div>
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/44.jpg) no-repeat scroll center center / cover ;">
-            <div class="ht__bradcaump__wrap">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="bradcaump__inner">
-                                <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.php">Home</a>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active">Search</span>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active"><?php echo $str?></span>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="bradcaump__inner">
+            <nav class="bradcaump-inner">
+                <a class="breadcrumb-item" href="index.php">Home</a>
+                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                <span class="breadcrumb-item active">Search</span>
+                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                <span class="breadcrumb-item active"><?php echo $str?></span>
+            </nav>
         </div>
+    </div>
+</div>
         <section class="htc__product__grid bg__white ptb--100">
             <div class="container">
                 <div class="row">
@@ -79,5 +74,5 @@ if($str!=''){
                 </div>
             </div>
         </section>
-<?php require('footer.inc.php')?>
+<?php require('footer.php')?>
         

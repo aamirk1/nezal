@@ -24,35 +24,25 @@ $script_name=$_SERVER['SCRIPT_NAME'];
 $script_name_arr=explode('/',$script_name);
 $mypage=$script_name_arr[count($script_name_arr)-1];
 
-// // $obj=new add_to_cart();
-// // $totalProduct=$obj->totalProduct();
 
-// // if(isset($_SESSION['USER_LOGIN'])){
-// //    $uid=$_SESSION['USER_ID'];
-// //    if(isset($_GET['wishlist_id'])){
-// //       $wid=get_safe_value($con,$_GET['wishlist_id']);
-// //       mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
-// //    }
-// //    $wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
 	
-// // }
-// // $script_name=$_SERVER['SCRIPT_NAME'];
-// // $script_name_arr=explode('/',$script_name);
-// // $mypage=$script_name_arr[count($script_name_arr)-1];
+$script_name=$_SERVER['SCRIPT_NAME'];
+$script_name_arr=explode('/',$script_name);
+$mypage=$script_name_arr[count($script_name_arr)-1];
 
-// // $meta_title="Nezal";
-// // $meta_desc="Nezal";
-// // $meta_keyword="Nezal";
-// // $meta_url=SITE_PATH;
-// // $meta_image='';
+$meta_title="Nezal";
+$meta_desc="Nezal";
+$meta_keyword="Nezal";
+$meta_url=SITE_PATH;
+$meta_image='';
 if($mypage=='product.php'){
    $product_id=get_safe_value($con,$_GET['id']);
    $product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
-// //    $meta_title=$product_meta['meta_title'];
-// //    $meta_desc=$product_meta['meta_desc'];
-// //    $meta_keyword=$product_meta['meta_keyword'];
-// //    $meta_url=SITE_PATH."product.php?id=".$product_id;
-// //    $meta_image=PRODUCT_IMAGE_SITE_PATH.$product_meta['image'];
+   $meta_title=$product_meta['meta_title'];
+   $meta_desc=$product_meta['meta_desc'];
+   $meta_keyword=$product_meta['meta_keyword'];
+   $meta_url=SITE_PATH."product.php?id=".$product_id;
+   $meta_image=PRODUCT_IMAGE_SITE_PATH.$product_meta['image'];
 }if($mypage=='contact.php'){
    $meta_title='Contact Us';
    

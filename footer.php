@@ -29,6 +29,14 @@
         </ul>
     </div>
     <div class="f-1">
+    
+        <div class="row">
+          <h2>Connect</h2>
+            
+                <button type="button"  class="mtb--10 ptb--5"style="border-radius: 5px;padding:10px;color:#171717;"><a style="
+    color: #000;" href="contact.php">Click Here</a></button>
+         
+        </div>
         <div class="row">
           <h2>Social</h2>
           <ul>

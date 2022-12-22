@@ -12,7 +12,7 @@ require('header.php');
         </div>
     </div>
 </div>
-        <section class="htc__contact__area ptb--100 bg__white">
+        <section class="htc__contact__area ptb--20 bg__white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">

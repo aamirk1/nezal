@@ -59,7 +59,7 @@ function get_product($con,$limit='',$cat_id='',$product_id='',$search_str='',$so
 }
 
 function wishlist_add($con,$uid,$pid){
-    $added_on=date('Y-m-d h:i:s');
+    $added_on=date('Y-m-d h:i:s'); 
     mysqli_query($con,"insert into wishlist(user_id,product_id,added_on) values('$uid','$pid','$added_on')");
 }
 
@@ -98,7 +98,6 @@ function SentInvoice($con,$order_id){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title></title>
         <style type="text/css" rel="stylesheet" media="all">
-        /* Base ------------------------------ */
         
         @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap");
         body {
