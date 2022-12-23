@@ -57,6 +57,9 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                      <a href="color.php" > Color</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
+                     <a href="orders.php" > Order</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php" > Contact Us</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
@@ -76,7 +79,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
          <header id="header" class="header">
             <div class="top-left">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="index.html"><img src="#" alt="">Nezal Admin</a>
+                  <a class="navbar-brand" href="index.php"><img src="../images/brand/Nezal.jpg" alt="" width="60px" height="40px"></a>
                   <a class="navbar-brand hidden" href="#"><img src="#" alt="Logo">Nezal Admin</a>
                   <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                </div>

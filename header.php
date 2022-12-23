@@ -54,7 +54,6 @@ if($mypage=='product.php'){
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <title>Nezal</title>
-   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
 
    <link rel="stylesheet" href="css/bootstrap.min.css">
    <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -97,7 +96,7 @@ if($mypage=='product.php'){
                   <div class="menumenu__container clearfix">
                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
                            <div class="logo">
-                                 <a href="#"><H2 style="color:green">Nezal</H2></a>
+                                 <a href="#"><img src="images/brand/Nezal.jpg" alt="" class="brand" style="height:58px;"></a>
                            </div>
                         </div>
                         <div class="col-md-7 col-lg-6 col-sm-5 col-xs-3">

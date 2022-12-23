@@ -22,7 +22,7 @@ class add_to_cart{
 	
 	function totalProduct(){
 		if(isset($_SESSION['cart'])){
-			//return count($_SESSION['cart']);
+			// return count($_SESSION['cart']);
 			$totalCount=0;
 			foreach($_SESSION['cart'] as $list){
 				$totalCount=$totalCount+count($list);

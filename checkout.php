@@ -332,38 +332,38 @@ $qty=$val1['qty'];
         </div>
     </div>
 </div>
-<script>
-    function set_coupon(){
-        var coupon_str=jQuery('#coupon_str').val()
-        if(coupon_str!=''){
-            jQuery('#coupon_result').html('');
-            jQuery.ajax({
-                url:'set_coupon.php',
-                type:'post',
-                data:'coupon_str='+coupon_str,
-                success:function(result){
-                    var data=jQuery.parseJSON(result);
-                    if(data.is_error=='yes'){
-                        jQuery('#coupon_box').hide();
-                        jQuery('#coupon_result').html(data.discount);
-                        jQuery('#order_total_price').html(data.result);
-                    }
-                    if(data.is_error=='no'){
-                        jQuery('#coupon_box').show();
-                        jQuery('#coupon_price').html(data.discount);
-                        jQuery('#order_total_price').html(data.result);
-                    }
-                }
-            });
-        }
-    }
-</script>
-        
+    
+    <script>
+			function set_coupon(){
+				var coupon_str=jQuery('#coupon_str').val();
+				if(coupon_str!=''){
+					jQuery('#coupon_result').html('');
+					jQuery.ajax({
+						url:'set_coupon.php',
+						type:'post',
+						data:'coupon_str='+coupon_str,
+						success:function(result){
+							var data=jQuery.parseJSON(result);
+							if(data.is_error=='yes'){
+								jQuery('#coupon_box').hide();
+								jQuery('#coupon_result').html(data.dd);
+								jQuery('#order_total_price').html(data.result);
+							}
+							if(data.is_error=='no'){
+								jQuery('#coupon_box').show();
+								jQuery('#coupon_price').html(data.dd);
+								jQuery('#order_total_price').html(data.result);
+							}
+						}
+					});
+				}
+			}
+		</script>		
 <?php 
- if(isset($_SESSION['COUPON_ID'])){
-    unset($_SESSION['COUPON_ID']);
-    unset($_SESSION['COUPON_CODE']);
-    unset($_SESSION['COUPON_VALUE']);
+if(isset($_SESSION['COUPON_ID'])){
+	unset($_SESSION['COUPON_ID']);
+	unset($_SESSION['COUPON_CODE']);
+	unset($_SESSION['COUPON_VALUE']);
 }
 require('footer.php');
 ?>

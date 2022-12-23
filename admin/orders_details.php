@@ -1,6 +1,6 @@
 <?php
 require('header.inc.php');
-isAdmin();
+
 $order_id=get_safe_value($con,$_GET['id']);
 $coupon_details=mysqli_fetch_assoc(mysqli_query($con,"select coupon_value,coupon_code from `order` where id='$order_id'"));
 $coupon_value=$coupon_details['coupon_value'];
@@ -26,7 +26,7 @@ if($coupon_value==''){
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="product-thumbnail">Product Name</th>
+										<th class="product-name">Product Name</th>
 										<th class="product-thumbnail">Product Image</th>
 										<th class="product-name">Qty</th>
 										<th class="product-price">Price</th>
