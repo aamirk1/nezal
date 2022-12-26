@@ -79,5 +79,5 @@ if($str!=''){
                 </div>
             </div>
         </section>
-<?php require('footer.inc.php')?>
+<?php require('footer.php')?>
         

@@ -17,7 +17,7 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
             <div class="single__slide animation__style01 slider__fixed--height">
                 <div class="container">
                     <div class="slide__thumb">
-                        <a href="<?php echo $rowBanner['btn_link']?>"><img src="<?php echo BANNER_IMAGE_SITE_PATH.$rowBanner['image']?>"></a>
+                        <a href="<?php echo $rowBanner['btn_link']?>"><img height="540px"  width="1200px" src="<?php echo BANNER_IMAGE_SITE_PATH.$rowBanner['image']?>"></a>
                     </div>
                 </div>
             </div>
@@ -29,16 +29,60 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
 <div class="container">
    <div class="row mt-5">
       <div class="row text-center">
-         <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Nezal’s Pledge</H1>
+         <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;font-family:Domine Sans-serif;">Nezal’s Pledge</H1>
       </div>
    </div>
-   <div class="row ">
-      <h2 class="text-success">
+   <div class="row pledge">
+      <p style="line-height:25px;">
       Nezal’s range of products are 100% natural and vegetable products like shea butter, Coco butter, Aloe vera, Olive oil, Pure Milk, Turmeric, Aromatherapy oils, Natural Herbal Scrubs etc.
-      </h2><br/>
-      <h2 class="text-success mt-2">
+      </p>
+      <p style="line-height:25px;">
       Nezal’s range of natural toilet amenities like herbal soaps, shampoo, conditioner, oil, scrub, bubble bath and body lotion are well accepted and solicited by major players in the hospitality industry to pamper their clients and enhance their customers loyalty.
-      </h2>
+      </p>
+      <p style="line-height:25px;">
+      At Nezal we believe in creating the best of products from basic raw ingredients derived from nature, hence we create our own soap base, in-house, by reacting the caustic materials with select range of oils [Coconut oil, Palm kernel oil, etc.] and we are sure of consistent quality and claim all our soap products to be of 100% vegetarian origin as we avoid any kind of animal fats in our process.
+      </p>
+   </div>
+</div>
+
+<div class="container-fluid mt-5">
+   <div class="row mt-5">
+      <div class="col-xl-12">
+         <div class="row mt-5 text-center">
+            <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;font-family:Domine Sans-serif;">Shop Our Collections</H1>
+         </div>
+         <div class="container-fluid mtb--10" style="background-color:#FAF4EA;">
+               <div class="row mt--60 mb--20 ptb--20">
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="https://i0.wp.com/nezalherbocare.com/wp-content/uploads/2022/10/Aissis-Soap-18.jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/7.jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/2(1).jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/5.jpg" alt="ourshopcollection"></a>
+                  </div>
+               </div>
+
+               <div class="row mt--15 mb--90 ptb--20">
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/4.jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/1.jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="images/ourshopcollection/3.jpg" alt="ourshopcollection"></a>
+                  </div>
+                  <div class="col-lg-3">
+                     <a href=""><img class="ourcollection" src="https://i0.wp.com/nezalherbocare.com/wp-content/uploads/2022/11/Aissis-Soap-21.jpg" alt="ourshopcollection"></a>
+                  </div>
+               </div>
+         </div>
+      </div>
    </div>
 </div>
 
@@ -46,7 +90,17 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
    <div class="row mt-5">
       <div class="col-xl-12">
          <div class="row mt-5 text-center">
-            <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;">Shop Our Collections</H1>
+            <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;font-family:Domine Sans-serif;">Shop By Category</H1>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="container mt-5">
+   <div class="row mt-5">
+      <div class="col-xl-12">
+         <div class="row mt-5 text-center">
+            <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;font-family:Domine Sans-serif;">Nezal's Range Of Products</H1>
          </div>
       </div>
    </div>
@@ -87,7 +141,26 @@ $resBanner=mysqli_query($con,"select * from banner where status='1' order by ord
         </div>
       </div>
    </section>
-</div>
+
+   <section class="htc__category__area" style="margin-top: 50px;">
+      <div class="container">
+         <div class="col-lg-4">
+            <div class="row">
+               <img src="https://i0.wp.com/nezalherbocare.com/wp-content/uploads/2022/09/Range-Of-Organic-Products-1-e1662790241572.jpg?fit=693%2C1024&amp;ssl=1" class="attachment-large size-large wp-image-123" alt="" loading="lazy" srcset="https://i0.wp.com/nezalherbocare.com/wp-content/uploads/2022/09/Range-Of-Organic-Products-1-e1662790241572.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row mt-5 text-center" style="margin-left: 10px;font-family:Domine Sans-serif;">
+               <H1 style="color:maroon;margin-top: 30px;margin-bottom: 15px;font-family:Domine Sans-serif;">Aim</H1>
+               <div>
+                  <h1 class="pledge"style="line-height:30px;">Introducing Nezal, the luxurious brand that deals with a range of organic skincare products. If you’re looking to take your beauty routine to the next level, then look no further than Nezal. Our products are made with only the finest ingredients and are designed to nourish and revitalize your skin. Trust us, your skin will thank you for using Nezal!
+
+ROOP is a range of organic products for enhancing your natural beauty. Nezal products are made with natural ingredients and are free from harsh chemicals. They are gentle on the skin and help to keep your skin looking young and radiant.</h1>
+               </div>
+            </div>
+        </div>
+      </div>
+   </section>
 
 
 </div>
